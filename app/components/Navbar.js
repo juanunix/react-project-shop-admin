@@ -23,9 +23,6 @@ var Navbar = React.createClass({
         <div id="navbar" className="navbar-collapse collapse">
           <ul className="nav navbar-nav">
             <li>
-              <a href="#">Catalog</a>
-            </li>
-            <li>
               <a href="#">Add Item</a>
             </li>
           </ul>
