@@ -1,9 +1,9 @@
-# React project shop admin
+# Webpack React Starter Kit
 
 ## Getting Started
 
-    git clone https://github.com/vikramcse/react-project-sho-admin.git
-    cd react-project-shop-admin
+    git clone https://github.com/vikramcse/webpack-react-starter.git
+    cd webpack-react-starter
     npm install
     npm start
 

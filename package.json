@@ -1,7 +1,7 @@
 {
-  "name": "react-project-shop-admin",
+  "name": "webpack-react-starter",
   "version": "1.0.0",
-  "description": "A admin for react project shop",
+  "description": "A starter template for webpack and react",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --content-base build/",
@@ -9,13 +9,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vikramcse/react-project-shop-admin.git"
+    "url": "git+https://github.com/vikramcse/webpack-react-starter.git"
   },
   "keywords": [
+    "webpack",
     "react",
-    "shop",
-    "app",
-    "admin"
+    "starter"
   ],
   "author": "Vikram Jadhav",
   "license": "MIT",
@@ -23,14 +22,13 @@
     "babel-core": "^6.4.5",
     "babel-loader": "^6.2.1",
     "babel-preset-react": "^6.3.13",
+    "react-dom": "^0.14.7",
     "webpack": "^1.12.12"
   },
   "dependencies": {
     "firebase": "^2.4.0",
-    "history": "^1.17.0",
     "react": "^0.14.7",
-    "react-dom": "^0.14.7",
-    "react-router": "^1.0.3",
+    "react-router": "^2.0.0",
     "reactfire": "^0.6.0",
     "webpack-dev-server": "^1.14.1"
   }
