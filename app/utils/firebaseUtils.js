@@ -1,4 +1,4 @@
-var Firebase = require('firebase');
+import Firebase from 'firebase';
 var forge = "https://zenleather.firebaseio.com/";
 var ref = new Firebase(forge);
 var cachedUser = null;

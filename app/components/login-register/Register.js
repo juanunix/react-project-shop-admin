@@ -1,5 +1,6 @@
-var React = require('react');
-var firebaseUtils = require('../../utils/firebaseUtils');
+import React from 'react';
+
+import firebaseUtils from '../../utils/firebaseUtils';
 
 var Register = React.createClass({
   contextTypes: {
@@ -10,7 +11,7 @@ var Register = React.createClass({
 
     var email = this.refs.email.value;
     var pw = this.refs.pw.value;
-    
+
     firebaseUtils.createUser({email: email, password: pw}, function(result){
       if(result){
         this.context.router.replace('/')

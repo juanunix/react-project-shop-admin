@@ -1,8 +1,8 @@
-var React = require('react');
-var ReactRouter = require('react-router');
-var Router = ReactRouter.Router;
-var Link = ReactRouter.Link;
-var firebaseUtils = require('../utils/firebaseUtils');
+import React from 'react';
+
+import { Router, Route, Link } from 'react-router'
+
+import firebaseUtils from '../utils/firebaseUtils';
 
 var Main = React.createClass({
   getInitialState: function(){
@@ -21,7 +21,7 @@ var Main = React.createClass({
   render: function(){
     var loginOrOut;
     var register;
-    
+
     if(this.state.loggedIn){
       loginOrOut = <li><Link to="/logout" className="navbar-brand">Logout</Link></li>;
       register = null
@@ -38,7 +38,8 @@ var Main = React.createClass({
             </div>
             <ul className="nav navbar-nav pull-right">
               <li><Link to="/" className="navbar-brand"> Home </Link></li>
-              <li><Link to="/dashboard" className="navbar-brand"> Dashboard </Link></li>
+              <li><Link to="/catalog" className="navbar-brand"> Catalog </Link></li>
+              <li><Link to="/orders" className="navbar-brand"> Orders </Link></li>
               {register}
               {loginOrOut}
             </ul>

@@ -1,4 +1,5 @@
 var path = require('path');
+
 var config = {
   devtool: 'eval-source-map',
   entry: path.join(__dirname, 'app/index.js'),
@@ -11,9 +12,9 @@ var config = {
     loaders: [{
       test: /\.js?$/,
       loader: 'babel-loader',
-      exclude: /node_modules/,
+      exclude: /(node_modules|bower_components)/,
       query: {
-        presets: ['react']
+        presets: ['es2015', 'react']
       }
     }]
   },

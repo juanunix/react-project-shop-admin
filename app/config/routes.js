@@ -1,20 +1,17 @@
-var React = require('react');
+import React from 'react';
 
 // react-router
-var ReactRouter = require('react-router');
-var Router = ReactRouter.Router;
-var Route = ReactRouter.Route;
-var hashHistory = ReactRouter.hashHistory;
-var IndexRoute = ReactRouter.IndexRoute;
+import { Router, Route, hashHistory, IndexRoute } from 'react-router'
 
 // Components
-var Main = require('../components/Main');
-var Register = require('../components/login-register/Register');
-var Login = require("../components/login-register/Login");
-var Logout = require('../components/login-register/Logout');
-var Dashboard = require('../components/secure/Dashboard');
-var Home = require("../components/Home");
-var requireAuth = require('../utils/authenticated')
+import Main from '../components/Main';
+import Register from '../components/login-register/Register';
+import Login from "../components/login-register/Login";
+import Logout from '../components/login-register/Logout';
+import Catalog from '../components/secure/Catalog';
+import Orders from '../components/secure/Orders';
+import Home from "../components/Home";
+import requireAuth from '../utils/authenticated';
 
 // Routes
 var routes = (
@@ -24,7 +21,8 @@ var routes = (
       <Route path="login" component={Login} />
       <Route path="logout" component={Logout} />
       <Route path="register" component={Register} />
-      <Route path="dashboard" component={Dashboard} onEnter={requireAuth} />
+      <Route path="catalog" component={Catalog} onEnter={requireAuth}/>
+      <Route path="orders" component={Orders} onEnter={requireAuth}/>
     </Route>
   </Router>
 );
