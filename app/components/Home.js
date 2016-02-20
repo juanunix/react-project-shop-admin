@@ -2,7 +2,14 @@ import React from 'react';
 
 var Home = React.createClass({
   render: function(){
-    return <p> This is the Home Page. This route is not protected. </p>
+    return (
+      <div className="jumbotron">
+        <div className="container">
+          <h1>ZEN LEATHER ADMIN</h1>
+          <p>This is a admin page used for managing the products on the store</p>
+        </div>
+      </div>
+    );
   }
 });
 
