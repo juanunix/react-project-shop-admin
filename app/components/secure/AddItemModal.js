@@ -1,5 +1,6 @@
-// http://blog.revathskumar.com/2015/06/using-bootstrap-modal-with-react.html
 import React from 'react';
+var ReactDOM = require('react-dom');
+var Dropzone = require('dropzone');
 
 var ModalHeader = React.createClass({
   render: function () {
@@ -14,35 +15,59 @@ var ModalHeader = React.createClass({
   }
 });
 
-var ModalFooter = React.createClass({
-  render: function () {
-    return (
-      <div className="modal-footer">
-        <button className="btn btn-success" >Submit</button>
-      </div>
-    )
-  }
-});
-
 var ModalBody = React.createClass({
   getInitialState: function() {
     return {
       title: '',
       summary: '',
       cost: '',
-      url: ''
+      url: '',
+      submitState: 'disabled',
     };
+  },
+  componentDidMount: function() {
+    var area = ReactDOM.findDOMNode(this.refs.dropzone);
+
+    var myDropzone = new Dropzone(area, {
+      uploadMultiple: false,
+      acceptedFiles:'.jpg,.png,.jpeg',
+      parallelUploads: 1,
+      previewTemplate: "<div> <div>", // I dont want the preview image
+      url: 'https://api.cloudinary.com/v1_1/dsn5h6o4x/image/upload'
+    });
+
+    myDropzone.on('sending', function (file, xhr, formData) {
+      formData.append('api_key', 789239149354257);
+      formData.append('upload_preset', 'doxaophb');
+      this.setState({
+        submitButtonText: 'Uploading...',
+      });
+    }.bind(this));
+
+    myDropzone.on('success', function (file, response) {
+      this.setState({
+        url: response.url,
+        submitState: '',
+        submitButtonText: ''
+      });
+    }.bind(this));
   },
   submitData: function(event) {
     event.preventDefault();
+
     this.props.catalog.push({
       title: this.state.title,
       summary:  this.state.summary,
       cost:  this.state.cost,
       url:  this.state.url
     });
-    // this is for now
-    alert("data saved");
+
+    this.setState({
+      title: '',
+      summary: '',
+      cost: '',
+      url: ''
+    });
   },
   handleTitleChange: function(event) {
     event.preventDefault();
@@ -85,9 +110,7 @@ var ModalBody = React.createClass({
           </div>
 
           <div className="form-group">
-            <label>Url</label>
-            <input onChange={this.handleUrlChange} value={this.state.url}
-              type="url" className="form-control" placeholder="Url" required/>
+            <div className="btn btn-primary" ref="dropzone">{this.state.submitButtonText || 'Upload'}</div>
           </div>
 
           <div className="form-group">
@@ -97,7 +120,7 @@ var ModalBody = React.createClass({
           </div>
         </div>
         <div className="modal-footer">
-          <button className="btn btn-success" type="submit">Submit</button>
+          <button className={"btn btn-success " + this.state.submitState} type="submit">Submit</button>
         </div>
       </form>
     )

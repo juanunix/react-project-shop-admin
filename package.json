@@ -27,6 +27,7 @@
     "webpack": "^1.12.12"
   },
   "dependencies": {
+    "dropzone": "^4.3.0",
     "firebase": "^2.4.0",
     "react": "^0.14.7",
     "react-router": "^2.0.0",
