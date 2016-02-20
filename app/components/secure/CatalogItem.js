@@ -18,20 +18,20 @@ var CatalogItem = React.createClass({
     this.fb.remove();
   },
   updateItem: function(id) {
-    console.log(id);
+    // Update Item
+    console.log("updating");
   },
   render() {
     return (
-      <li key={this.props.id} onClick={this.updateItem.bind(null, this.props.id)} className="inventoryItem">
-        <a className="user-avatar">
+      <li key={this.props.id}>
+        <a className="user-avatar inventoryItem" onClick={this.updateItem.bind(null, this.props.id)}>
           <img src={this.state.url} width="80"/>
         </a>
         <p>
           <a>{this.state.title}</a>
           <span>{this.state.cost + ' Rs'}</span>
         </p>
-        <a
-          className="delete"
+        <a className="delete"
           onClick={this.handleDelete}>
           <i className="fa fa-close"></i>
         </a>
