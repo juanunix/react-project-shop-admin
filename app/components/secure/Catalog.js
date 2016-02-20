@@ -62,7 +62,7 @@ var Catalog = React.createClass({
             </ul>
           </div>
         </div>
-        <AddItemModal catalog={this.firebaseRefs.catalog} ref="modal"/>
+        <AddItemModal title="Add Item" catalog={this.firebaseRefs.catalog} ref="modal"/>
 
       </div>
     )
