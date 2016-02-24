@@ -1,10 +1,9 @@
-# Webpack React Starter Kit
+# React Shop Project Admin
 
 ## Getting Started
-
-    git clone https://github.com/vikramcse/webpack-react-starter.git
-    cd webpack-react-starter
-    npm install
-    npm start
+  git clone https://github.com/vikramcse/react-project-shop-admin.git
+  cd react-project-shop-admin
+  npm install
+  npm start
 
 Then just open http://localhost:8080 in your browser!
