@@ -19,6 +19,7 @@ var ModalBody = React.createClass({
   getInitialState: function() {
     return {
       title: '',
+      productId: '',
       summary: '',
       cost: '',
       url: '',
@@ -58,6 +59,7 @@ var ModalBody = React.createClass({
     this.props.catalog.push({
       title: this.state.title,
       summary:  this.state.summary,
+      productId: this.state.productId,
       cost:  this.state.cost,
       url:  this.state.url
     });
@@ -66,7 +68,8 @@ var ModalBody = React.createClass({
       title: '',
       summary: '',
       cost: '',
-      url: ''
+      url: '',
+      productId: ''
     });
   },
   handleTitleChange: function(event) {
@@ -93,6 +96,12 @@ var ModalBody = React.createClass({
       cost: event.target.value
     });
   },
+  handleIdChange: function(event) {
+    event.preventDefault();
+    this.setState({
+      productId: event.target.value
+    });
+  },
   render: function () {
     return (
       <form onSubmit={this.submitData}>
@@ -101,6 +110,12 @@ var ModalBody = React.createClass({
             <label>Title</label>
             <input onChange={this.handleTitleChange} value={this.state.title}
               type="text" className="form-control" placeholder="Title" required/>
+          </div>
+
+          <div className="form-group">
+            <label>Product Id</label>
+            <input onChange={this.handleIdChange} value={this.state.productId}
+              type="text" className="form-control" placeholder="Product Id" required/>
           </div>
 
           <div className="form-group">

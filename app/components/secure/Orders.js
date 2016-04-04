@@ -1,5 +1,4 @@
 import React from 'react';
-import OrderItem from './OrderItem';
 
 var ref = require('../../config/constants.js').firebase_ref;
 import Firebase from 'firebase';
@@ -23,11 +22,11 @@ var Orders = React.createClass({
       if (typeof this.state.orders[k] === 'object') {
         data.push(
           {
-            done: "True",
-            pname: "BAG",
-            cname: this.state.orders[k].name,
-            pnumber: this.state.orders[k].mobile,
-            address: this.state.orders[k].address
+            "Product Name": this.state.orders[k].productName,
+            "Product Id": this.state.orders[k].id,
+            "Customer Name": this.state.orders[k].name + " " + this.state.orders[k].surname,
+            "Phone Number": this.state.orders[k].mobile,
+            "Address": this.state.orders[k].address
           }
         );
       }
